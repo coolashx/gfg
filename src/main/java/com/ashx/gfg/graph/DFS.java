@@ -4,10 +4,10 @@ import java.util.List;
 
 public class DFS {
     public static void main(String[] args) {
-        dfs(GraphUtil.getDummyConnectedGraph(), 0);
+        dfs(GraphUtil.getConnectedUndirectedGraph(), 0);
         System.out.println();
 
-        int connectedComponents = dfsDisconnected(GraphUtil.getDummyDisconnectedGraph()); // O(V + E)
+        int connectedComponents = dfsDisconnected(GraphUtil.getDisconnectedUndirectedGraph()); // O(V + E)
         System.out.println();
         System.out.println("Connected components count: " + connectedComponents);
         System.out.println();

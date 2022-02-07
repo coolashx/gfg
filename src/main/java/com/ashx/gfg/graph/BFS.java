@@ -6,10 +6,10 @@ import java.util.Queue;
 
 public class BFS {
     public static void main(String[] args) {
-        bfs(GraphUtil.getDummyConnectedGraph(), 0); // O(V + E)
+        bfs(GraphUtil.getConnectedUndirectedGraph(), 0); // O(V + E)
         System.out.println();
 
-        int connectedComponents = bfsDisconnected(GraphUtil.getDummyDisconnectedGraph()); // O(V + E)
+        int connectedComponents = bfsDisconnected(GraphUtil.getDisconnectedUndirectedGraph()); // O(V + E)
         System.out.println();
         System.out.println("Connected components count: " + connectedComponents);
     }
@@ -17,6 +17,19 @@ public class BFS {
     public static void bfs(List<List<Integer>> adj, int s) {
         boolean[] visited = new boolean[adj.size()];
         bfs(adj, s, visited);
+    }
+
+    public static int bfsDisconnected(List<List<Integer>> adj) {
+        int V = adj.size();
+        int count = 0;
+        boolean[] visited = new boolean[V];
+        for (int i = 0; i < V; i++) {
+            if (!visited[i]) {
+                bfs(adj, i, visited);
+                count++;
+            }
+        }
+        return count;
     }
 
     private static void bfs(List<List<Integer>> adj, int s, boolean[] visited) {
@@ -33,18 +46,5 @@ public class BFS {
                 }
             }
         }
-    }
-
-    public static int bfsDisconnected(List<List<Integer>> adj) {
-        int V = adj.size();
-        int count = 0;
-        boolean[] visited = new boolean[V];
-        for (int i = 0; i < V; i++) {
-            if (!visited[i]) {
-                bfs(adj, i, visited);
-                count++;
-            }
-        }
-        return count;
     }
 }
