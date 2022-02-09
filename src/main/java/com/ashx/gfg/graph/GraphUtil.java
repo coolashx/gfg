@@ -67,6 +67,15 @@ public class GraphUtil {
         );
     }
 
+    public static int[][] getUndirectedWeightedGraph() {
+        return new int[][]{
+                {0, 5, 8, 0}, // V-0
+                {5, 0, 10, 15}, // V-1
+                {8, 10, 0, 20}, // V-2
+                {0, 15, 20, 0} // V-3
+        };
+    }
+
     public static List<List<Weight>> getDirectedAcyclicWeightedGraph() {
         /*
             (0) -2> (1) -3> (2) -6> (3)
