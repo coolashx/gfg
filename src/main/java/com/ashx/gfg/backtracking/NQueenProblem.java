@@ -1,9 +1,15 @@
 package com.ashx.gfg.backtracking;
 
+import java.util.Arrays;
+
 public class NQueenProblem {
     public static void main(String[] args) {
         int[][] board = solve(4);
-        print(board);
+
+        System.out.println(Arrays.deepToString(board)
+                .replace("],", "\n")
+                .replace(",", " ")
+                .replaceAll("[\\[\\]]", " "));
     }
 
     public static int[][] solve(int N) {
@@ -47,15 +53,5 @@ public class NQueenProblem {
             }
         }
         return true;
-    }
-
-    private static void print(int[][] board) {
-        int N = board.length;
-        for (int[] booleans : board) {
-            for (int j = 0; j < N; j++) {
-                System.out.print(booleans[j] + " ");
-            }
-            System.out.println();
-        }
     }
 }
