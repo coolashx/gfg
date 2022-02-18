@@ -2,6 +2,9 @@ package com.ashx.gfg.dp;
 
 import java.util.Arrays;
 
+/**
+ * Longest Common Subsequence
+ */
 public class LCS {
     public static void main(String[] args) {
         System.out.println(lcs("AXYZ", "BAZ"));

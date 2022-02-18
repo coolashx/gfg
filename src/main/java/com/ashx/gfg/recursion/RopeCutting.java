@@ -1,5 +1,8 @@
 package com.ashx.gfg.recursion;
 
+/**
+ * Also check {@link com.ashx.gfg.dp.RopeCutting}
+ */
 public class RopeCutting {
     public static void main(String[] args) {
         System.out.println(maxPieces(23, 11, 9, 12));
