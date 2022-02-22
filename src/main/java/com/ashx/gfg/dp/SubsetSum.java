@@ -12,7 +12,7 @@ public class SubsetSum {
     }
 
     public static int subsetSumRec(int[] arr, int sum) { // Theta(2^n)
-        return subsetSumRec(arr, arr.length, 25);
+        return subsetSumRec(arr, arr.length, sum);
     }
 
     private static int subsetSumRec(int[] arr, int n, int sum) {
