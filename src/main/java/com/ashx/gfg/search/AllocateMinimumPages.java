@@ -1,13 +1,16 @@
 package com.ashx.gfg.search;
 
+/**
+ * Also check {@link com.ashx.gfg.dp.AllocateMinimumPages}
+ */
 public class AllocateMinimumPages {
     public static void main(String[] args) {
         int[] arr = {10, 20, 10, 30};
         int k = 2;
-        System.out.println(minPages(arr, k)); // O(n*log(sum-max))
+        System.out.println(minPages(arr, k));
     }
 
-    public static int minPages(int[] arr, int k) {
+    public static int minPages(int[] arr, int k) { // O(n*log(sum-max))
         int n = arr.length;
         int sum = 0, mx = 0;
         for (int j : arr) {
