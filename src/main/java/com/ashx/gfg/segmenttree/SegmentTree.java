@@ -26,7 +26,7 @@ public class SegmentTree {
         System.out.println(tree.getSum(0, 2));
     }
 
-    public int getSum(int qs, int qe) {
+    public int getSum(int qs, int qe) { // O(log n)
         int n = this.arr.length;
         return getSum(qs, qe, 0, n - 1, 0);
     }
