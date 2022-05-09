@@ -1,4 +1,4 @@
-package com.ashx.gfg.segmenttree;
+package com.ashx.gfg.tree;
 
 import java.util.Arrays;
 
