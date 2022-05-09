@@ -24,11 +24,20 @@ public class SegmentTree {
         System.out.println(Arrays.toString(tree.tree));
         System.out.println(tree.getSum(2, 3));
         System.out.println(tree.getSum(0, 2));
+        tree.update(1, 25);
+        tree.update(0, 15);
+        System.out.println(tree.getSum(0, 1));
+        System.out.println(tree.getSum(1, 2));
     }
 
     public int getSum(int qs, int qe) { // O(log n)
         int n = this.arr.length;
         return getSum(qs, qe, 0, n - 1, 0);
+    }
+
+    public void update(int idx, int newVal) { // O(log n)
+        int diff = newVal - arr[idx];
+        update(0, this.arr.length - 1, idx, 0, diff);
     }
 
     private int getSum(int qs, int qe, int ss, int se, int si) {
@@ -57,6 +66,18 @@ public class SegmentTree {
         tree[si] = constructST(ss, mid, 2 * si + 1)
                 + constructST(mid + 1, se, 2 * si + 2);
         return tree[si];
+    }
+
+    private void update(int ss, int se, int i, int si, int diff) {
+        if (i < ss || i > se) {
+            return;
+        }
+        tree[si] += diff;
+        if (se > ss) {
+            int mid = (ss + se) / 2;
+            update(ss, mid, i, 2 * si + 1, diff);
+            update(mid + 1, se, i, 2 * si + 2, diff);
+        }
     }
 }
 
